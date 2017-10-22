@@ -226,7 +226,8 @@ Configuration parameters could be provided to hls.js upon instantiation of `Hls`
       abrEwmaDefaultEstimate: 500000,
       abrBandWidthFactor: 0.8,
       abrBandWidthUpFactor: 0.7,
-      minAutoBitrate: 0
+      minAutoBitrate: 0,
+      removeAudioOnlyLevels: true
   };
 
   var hls = new Hls(config);
@@ -723,6 +724,11 @@ If `abrBandWidthUpFactor * bandwidth average < level.bitrate` then ABR can switc
 Return the capping/min bandwidth value that could be used by automatic level selection algorithm.
 Useful when browser or tab of the browser is not in the focus and bandwidth drops
 
+#### `removeAudioOnlyLevels`
+(default: `true`)
+
+Remove audio only levels when mixed with levels containing both video and audio levels.
+If set to `false`, audio-only levels will be available for manual selection, but still be ignored by automatic level selection.
 
 ## Video Binding/Unbinding API
 

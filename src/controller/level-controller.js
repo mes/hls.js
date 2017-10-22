@@ -86,7 +86,7 @@ class LevelController extends EventHandler {
     });
 
     // remove audio-only level if we also have levels with audio+video codecs signalled
-    if(videoCodecFound && audioCodecFound) {
+    if(hls.config.removeAudioOnlyLevels && videoCodecFound && audioCodecFound) {
       levels0.forEach(level => {
         if(level.videoCodec) {
           levels.push(level);
@@ -364,4 +364,3 @@ class LevelController extends EventHandler {
 }
 
 export default LevelController;
-
