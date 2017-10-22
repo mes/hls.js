@@ -211,6 +211,12 @@ class AbrController extends EventHandler {
         nextABRAutoLevel++;
       }
     }
+    if (!hls.config.removeAudioOnlyLevels) {
+      // Skip over any audio-only levels for automatic selection
+      while (!levels[nextABRAutoLevel].videoCodec) {
+        nextABRAutoLevel++;
+      }
+    }
     return nextABRAutoLevel;
   }
 
@@ -319,4 +325,3 @@ class AbrController extends EventHandler {
 }
 
 export default AbrController;
-
